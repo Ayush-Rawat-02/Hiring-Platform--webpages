@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./Register.css">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class='zenith_navbar'>
+        <div class='zenith_navbar_links'>
+            <div class='zenith_navbar_links_container'>
+                <p><a href="./Index.html">Home</a></p>
+                <p><a href="#">About</a></p>
+                <p><a href="#">Support</a></p>
+                <p><a href="#">Contact us</a></p>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><span class="material-symbols-outlined">
+                        menu
+                    </span></button>
+                <div class="dropdown-content">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Support</a>
+                    <a href="#">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty_box"></div>
+    <!-- Registration -->
+    <div class="container">
+        <div class="form">
+            <div class="header">
+                <select name="language" class="language">
+                    <option value="1" selected>English</option>
+                    <option value="2">Spanish</option>
+                    <option value="3">Hindi</option>
+                    <option value="4">Chinese</option>
+                    <option value="5">Japanese</option>
+                </select>
+            </div>
+            <div class="form_box">
+                <h1>Register</h1>
+                <h2><strong>Welcome to the Community Dashboard</strong></h2>
+                <form action="">
+                    <input type="text" name="name" class="input_box" placeholder="Name" />
+                    <input type="email" name="email" class="input_box" placeholder="Your Email" />
+                    <input type="password" name="password" class="input_box" placeholder="Password" />
+                    <input type="password" name="cpassword" class="input_box" placeholder="Confirm Password" />
+                    <p>Already have an account?
+                        <a href='./Login.html'>Log in</a>
+                    </p>
+                    <button type="submit" class="action_button">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card_action">
+                <div class="links">
+                    <Link to='/'>Take a tour</Link>
+                    <button class="button_outlined" href="#">Explore</button>
+                </div>
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="gallery">
+                <h3>Our branches</h3>
+                <div class="gallery_slider">
+                    <button onClick={pressedL}><span class="material-symbols-outlined">
+                            arrow_back_ios
+                        </span></button>
+                    <div class="gallery_slider_current">
+                        <img src='./assets/kualalumpur.jpg' alt="" />
+                    </div>
+                    <button onClick={pressedR}><span class="material-symbols-outlined">
+                            arrow_forward_ios
+                        </span></button>
+                </div>
+                <h4><strong>Kualalumpur</strong></h4>
+            </div>
+
+            <div class="quotes">
+                <h1>"</h1>
+                <h1>Consistency is the key to success.</h1>
+                <div class="quotes_option">
+                    <p>3rd January</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

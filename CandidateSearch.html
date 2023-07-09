@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Search</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class='zenith_navbar'>
+        <div class='zenith_navbar_links'>
+            <div class='zenith_navbar_links_container'>
+                <p><a href="./Index.html">Home</a></p>
+                <p><a href="#">About</a></p>
+                <p><a href="#">Support</a></p>
+                <p><a href="#">Contact us</a></p>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><span class="material-symbols-outlined">
+                        menu
+                    </span></button>
+                <div class="dropdown-content">
+                    <a href="./Index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Support</a>
+                    <a href="#">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty_box"></div>
+    <!-- Search -->
+    <div>
+        <div class="search_bar">
+            <input type="text" name="toSearch" id="key" placeholder="Location / job role" />
+            <select name="filter" id="filter">
+                <option value="" selected>Filter by</option>
+                <option value="1">Location</option>
+                <option value="2">Job role</option>
+            </select>
+            <button onClick="calculate()"><span class="material-symbols-outlined">
+                    search
+                </span></button>
+        </div>
+        <div id="cList" class="candidate_list">
+            <div class="candidate">
+                <h1>Search for something</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div>
+            <h3>About</h3>
+            <p><a href="#">Overview</a></p>
+            <p><a href="#">Careers</a></p>
+            <p><a href="#">Leadership Team</a></p>
+            <p><a href="#">News</a></p>
+            <p><a href="#">Privacy</a></p>
+        </div>
+        <div>
+            <h3>Products</h3>
+            <p><a href="#">Email Security</a></p>
+            <p><a href="#">Cloud Service</a></p>
+            <p><a href="#">Product analysis</a></p>
+        </div>
+        <div>
+            <h3>Connect</h3>
+            <p><a href="#">Contact us</a></p>
+            <p><a href="#">Office Locations</a></p>
+            <p><a href="#">Request an Interview</a></p>
+        </div>
+        <div>
+            <h3>Support</h3>
+            <p><a href="#">Support Login</a></p>
+            <p><a href="#">Support services</a></p>
+            <p><a href="#">IP Address Blocked</a></p>
+        </div>
+    </footer>
+    <script>
+        const sample_data = [
+            {
+                name: "Ayush",
+                age: 20,
+                location: "Dehradun",
+                job_role: "Full-Stack Web developer",
+            },
+            {
+                name: "Aman",
+                age: 21,
+                location: "Haldwani",
+                job_role: "Data Scientist",
+            },
+            {
+                name: "Akshay",
+                age: 19,
+                location: "Lucknow",
+                job_role: "DevOps Engineer",
+            },
+            {
+                name: "Nikhil",
+                age: 19,
+                location: "Ghaziabad",
+                job_role: "Software Tester",
+            },
+            {
+                name: "Shishank",
+                age: 21,
+                location: "Haldwani",
+                job_role: "Software Developer",
+            },
+            {
+                name: "Harshit",
+                age: 20,
+                location: "Gurgaon",
+                job_role: "Data Engineer",
+            },
+        ];
+        function calculate() {
+            var inp = document.getElementById("key").value;
+            var filter = document.getElementById("filter").value;
+            if (inp == null || filter == null) {
+                return;
+            }
+            var toAdd = ""
+            for (var i = 0; i < sample_data.length; i++) {
+                if (filter == 1 && sample_data[i].location.includes(inp)) {
+                    toAdd += `<div class="candidate">
+                <div>
+                    <h3>${sample_data[i].name}</h3>
+                </div>
+                <div>
+                    <h3>${sample_data[i].age}</h3>
+                </div>
+                <div>
+                    <h3>${sample_data[i].location}</h3>
+                </div>
+                <div>
+                    <h3>${sample_data[i].job_role}</h3>
+                </div>
+            </div>`;
+                }
+                else if (filter == 2 && sample_data[i].job_role.includes(inp)) {
+                    toAdd += `<div class="candidate">
+                <div>
+                    <h3>${sample_data[i].name}</h3>
+                </div>
+                <div>
+                    <h3>${sample_data[i].age}</h3>
+                </div>
+                <div>
+                    <h3>${sample_data[i].location}</h3>
+                </div>
+                <div>
+                    <h3>${sample_data[i].job_role}</h3>
+                </div>
+            </div>`;
+                }
+            }
+            if (toAdd.length == 0) toAdd = "<div class='candidate'><h1>No data found</h1></div>";
+            document.getElementById("cList").innerHTML = toAdd;
+        }
+    </script>
+</body>
+
+</html>
